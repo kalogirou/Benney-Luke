@@ -19,6 +19,7 @@ def create_mesh(Nx, Ny, Lx, Ly):
 
 def stretch_mesh(mesh, coords, Nx, Ny, Lx, d):
 
+    # To create a V-shaped domain
 	L = sqrt(d**2 - (0.5*Lx)**2)
 	slope = L/(0.5*Lx)
 	dy = [0]*(Nx+1)*(Ny+1)
