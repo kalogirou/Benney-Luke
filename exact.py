@@ -25,7 +25,7 @@ def update_exact(ex_phi, ex_eta, expr_phi, expr_eta, t, Ly, epsilon, c, is_linea
 		expr_eta.t = t					# Update exact solutions in time
     		expr_phi.t = t
     		
-	elif is_linear == 'False':				# Soliton reflection on solid wall.
+	elif is_linear == 'False':				# Soliton reflection on solid wall
 		if t>1.5*Ly/(1+epsilon*c):
 			expr_eta.t = t-1.5*Ly/(1+epsilon*c)
 		        expr_phi.t = t-1.5*Ly/(1+epsilon*c)

@@ -6,9 +6,9 @@ from math import *
 
 def get_cases():
 
-	is_exact = 'False'	# 'True': compare to exact solutions. 'False': sluice gate problem.
-	is_linear = 'False'	# 'True': linear Benney-Luke. 'False': nonlinear.
-	order_time = 2		# Order of the time integrator: = 1 Symplectic Euler, = 2 Stormer-Verlet.
+	is_exact = 'False'	# 'True': compare to exact solutions. 'False': sluice gate problem
+	is_linear = 'False'	# 'True': linear Benney-Luke. 'False': nonlinear
+	order_time = 2		# Order of the time integrator: = 1 Symplectic Euler, = 2 Stormer-Verlet
 	solvers_print = {} 	# OR = {'snes_monitor': True,'ksp_monitor': True,'snes_linesearch_monitor': True}
 
 	return (is_exact, is_linear, order_time, solvers_print);
@@ -76,7 +76,7 @@ def omega_speed(Lx, Ly, mu):
 	omega = sqrt(k2*(1+2*mu/3.0*k2))/(1+0.5*mu*k2)	# Dispersion relation
 
 	# Necessary only in the nonlinear soliton case
-	speed = 1.5 					# corresponding to c=1 in the solution in paper -> c is scaled differently
+	speed = 1.0
 
 	return (Ampl, kx, ky, k2, omega, speed);
 

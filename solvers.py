@@ -27,7 +27,7 @@ def solver_phi(phi1, phi0_5, phi0, eta0, etaR, phi, gamma, dt, mu, epsilon, is_l
 
 	return phi_solver;
 
-# Variational problem for Laplace equation q = -2/3*Delta^2(phi)
+# Variational problem for equation q = -2/3*Delta^2(phi)
 def solvers_q(q1, q0_5, phi1, phi0_5, q, gamma):
 
 	aq = gamma*q*dx

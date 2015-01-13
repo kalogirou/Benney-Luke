@@ -55,7 +55,7 @@ elif is_exact == 'False':
 
 if is_linear == 'True': epsilon = 0.0;			# Set epsilon=0 for linear case
 
-# Weak formulation: order_time = 1 for Euler 1st-order, = 2 for Stormer-Verlet 2nd-order... = 3 for 3rd-order scheme
+# Weak formulation: order_time = 1 for Euler 1st-order, = 2 for Stormer-Verlet 2nd-order
 if order_time == 1:
 	phi_solver = solver_phi(phi1, phi1, phi0, eta0, etaR, phi, gamma, dt, mu, epsilon, is_linear, solvers_print);
 	(q_solver, q_solver0_5) = solvers_q(q1, q0_5, phi1, phi0_5, q, gamma);
