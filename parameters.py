@@ -40,21 +40,22 @@ def parameter_values(H0s, LLx, LLy, Lc, hh1, U, g, is_exact, is_linear):
 	if is_exact == 'True':
 		d = 0.0
 		Ts = 0.0
-		if is_linear == 'True':			# Linear exact problem.
+		if is_linear == 'True':			# Linear exact problem
 			T = 2.0
 			Nx = 200
 			Ny = 36
 			Lx = 5
 			Ly = 1.8
-		elif is_linear == 'False':		# Soliton exact problem.
+		elif is_linear == 'False':		# Soliton exact problem
 			T = 10.0
 			Nx = 1
 			Ny = 50
 			Lx = 1
 			Ly = 10
 			mu = 0.01
-			epsilon = 0.01 
-	elif is_exact == 'False':			# Sluice gate problem.
+			epsilon = 0.01
+
+	elif is_exact == 'False':			# Sluice gate problem
 		T = 25.0
 		Nx = 20
 		Ny = 800

@@ -8,7 +8,7 @@ def create_mesh(Nx, Ny, Lx, Ly):
 
 	m = UnitIntervalMesh(Nx)            # For quadrilateral mesh
 	mesh = ExtrudedMesh(m, layers=Ny)
-	#mesh = UnitSquareMesh(Nx,Ny)       # For triangular mesh
+	#mesh = UnitSquareMesh(Nx, Ny)      # For triangular mesh
 	coords = mesh.coordinates
 	coords.dat.data[:,0] = Lx*coords.dat.data[:,0]
 	coords.dat.data[:,1] = Ly*coords.dat.data[:,1]
@@ -17,9 +17,9 @@ def create_mesh(Nx, Ny, Lx, Ly):
 
 ##################################################
 
+# To create a V-shaped domain
 def stretch_mesh(mesh, coords, Nx, Ny, Lx, d):
 
-        # To create a V-shaped domain
 	L = sqrt(d**2 - (0.5*Lx)**2)
 	slope = L/(0.5*Lx)
 	dy = [0]*(Nx+1)*(Ny+1)

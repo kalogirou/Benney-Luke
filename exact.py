@@ -10,6 +10,7 @@ def exact_solutions(x, t, kx, ky, k2, Lx, Ly, omega, Ampl, mu, epsilon, speed, i
 		# Exact linear solution
 		expr_phi = Expression("-Ampl/w/(1+0.5*mu*k2)*sin(w*t)*cos(kx*pi*x[0]/Lx)*cos(ky*pi*x[1]/Ly)", t=t, kx=kx, ky=ky, Lx=Lx, Ly=Ly, w=omega, Ampl=Ampl, mu=mu, k2=k2)
 		expr_eta = Expression("Ampl*cos(w*t)*cos(kx*pi*x[0]/Lx)*cos(ky*pi*x[1]/Ly)", t=t, kx=kx, ky=ky, Lx=Lx, Ly=Ly, w=omega, Ampl=Ampl)
+    
 	elif is_linear == 'False':
 		# Exact soliton solution
 		expr_eta = Expression("1/3.0*c*pow(cosh(0.5*sqrt(c*epsilon/mu)*(x[1]-y0-t-epsilon*c*t/6.0)),-2)", t=t, c=speed, epsilon=epsilon, mu=mu, y0=0.5*Ly)

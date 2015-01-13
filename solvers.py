@@ -19,6 +19,7 @@ def solver_phi(phi1, phi0_5, phi0, eta0, etaR, phi, gamma, dt, mu, epsilon, is_l
 
 		phi_problem = LinearVariationalProblem(aphi,Lphi,phi1)
 		phi_solver = LinearVariationalSolver(phi_problem)
+    
 	elif is_linear == 'False':
 		Fphi = ( gamma*(phi1-phi0)/dt + 0.5*mu*inner(grad(gamma),grad((phi1-phi0)/dt)) + gamma*(eta0-etaR) + 0.5*epsilon*inner(grad(phi0_5),grad(phi0_5))*gamma )*dx
 
@@ -55,6 +56,7 @@ def solver_eta(eta1, eta0_5, eta0, phi1, phi0_5, q1, q0_5, eta, gamma, dt, mu, e
 
 		eta_problem = LinearVariationalProblem(aeta,Leta,eta1)
 		eta_solver = LinearVariationalSolver(eta_problem)
+    
 	elif is_linear == 'False':
 		Feta = ( gamma*(eta1-eta0)/dt + 0.5*mu*inner(grad(gamma),grad((eta1-eta0)/dt)) - 0.5*((1+epsilon*eta0)+(1+epsilon*eta0_5))*inner(grad(gamma),grad(phi0_5)) - mu*inner(grad(gamma),grad(q0_5)) )*dx
 

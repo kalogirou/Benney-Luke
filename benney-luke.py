@@ -24,7 +24,7 @@ if is_exact == 'True': (Ampl, kx, ky, k2, omega, speed) = omega_speed(Lx, Ly, mu
 if is_exact == 'False': coords = stretch_mesh(mesh, coords, Nx, Ny, Lx, d);
 
 # Define functions
-V = FunctionSpace(mesh,"CG",2)
+V = FunctionSpace(mesh, "CG", 2)
 
 eta0 = Function(V)
 phi0 = Function(V)
