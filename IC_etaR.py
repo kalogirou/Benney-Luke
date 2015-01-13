@@ -25,7 +25,7 @@ def def_etaR(x, H0s, mu, epsilon, hh0, hh1, LL):
 	y1 = LL/(H0s/sqrt(mu))
 	y2 = (LL+0.2)/(H0s/sqrt(mu))
 
-    etaR_expr = Expression("(h1-H0)*(0.5*(1+copysign(1.0,y1-x[1])) + 0.25*(1+copysign(1.0,y2-x[1]))*(1+copysign(1.0,x[1]-y1))*(1-(x[1]-y1)/(y2-y1)))", y1=y1, y2=y2, h1=h1, H0=h0)
+        etaR_expr = Expression("(h1-H0)*(0.5*(1+copysign(1.0,y1-x[1])) + 0.25*(1+copysign(1.0,y2-x[1]))*(1+copysign(1.0,x[1]-y1))*(1-(x[1]-y1)/(y2-y1)))", y1=y1, y2=y2, h1=h1, H0=h0)
 
 	return (etaR_expr, h0, h1);
 
