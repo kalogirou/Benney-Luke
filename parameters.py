@@ -58,7 +58,7 @@ def parameter_values(H0s, LLx, LLy, Lc, hh1, U, g, is_exact, is_linear):
 	elif is_exact == 'False':			# Sluice gate problem
 		T = 25.0
 		Nx = 20
-		Ny = 800
+		Ny = 400
 		Lx = LLx/(H0s/sqrt(mu))		# width (scaled)
 		Ly = LLy/(H0s/sqrt(mu))		# length (scaled)
 		d = Lc/(H0s/sqrt(mu))		# contraction length (scaled)
