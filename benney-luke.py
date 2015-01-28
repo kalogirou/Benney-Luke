@@ -94,7 +94,7 @@ if is_exact == 'True':
 	phi_exact << phi0
 	eta_exact << eta0
 
-while(t < T-0.5*dt):
+while(t < T-dt):
     	t += dt
     	if is_exact == 'True':
     		print t, assemble((phi0-ex_phi)**2*dx)
