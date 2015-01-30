@@ -10,6 +10,7 @@ from solvers import *
 from energy import *
 from exact import *
 
+# A bug in Firedrake’s kernel optimiser currently means that this code fails with optimisations enabled, so for current purposes we turn it off.
 op2.init()
 parameters["coffee"]["O2"] = False
 
@@ -68,8 +69,8 @@ elif order_time == 2:
 	phi_solver1 = solver_phi(phi1, phi0_5, phi0_5, eta1, etaR0_5, phi, gamma, 0.5*dt, mu, epsilon, is_linear, solvers_print);	# Give eta1 instead of eta0 and phi0_5 instead of phi0
 
 # Write data to files
-phi_file = File('phi.pvd')
-eta_file = File('eta.pvd')
+phi_file = File("phi.pvd")
+eta_file = File("eta.pvd")
 etaR_file = File("etaR.pvd")
 
 phi_file << phi0
@@ -89,8 +90,8 @@ E = find_energy(phi0, eta0, q0, mu, epsilon, t, E0, E_file);
 if is_exact == 'True': 
 	(expr_phi, expr_eta) = exact_solutions(coords.dat.data, t, kx, ky, k2, Lx, Ly, omega, Ampl, mu, epsilon, speed, is_linear);
 	
-	phi_exact = File('phi_ex.pvd')					# Write exact solutions to files
-	eta_exact = File('eta_ex.pvd')
+	phi_exact = File("phi_ex.pvd")					# Write exact solutions to files
+	eta_exact = File("eta_ex.pvd")
 	phi_exact << phi0
 	eta_exact << eta0
 
