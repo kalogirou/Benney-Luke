@@ -10,7 +10,7 @@ from solvers import *
 from energy import *
 from exact import *
 
-# A bug in Firedrake’s kernel optimiser currently means that this code fails with optimisations enabled, so for current purposes we turn it off.
+# A bug in Firedrake’s kernel optimiser currently means that this code fails with optimisations enabled, so we turn it off
 op2.init()
 parameters["coffee"]["O2"] = False
 
@@ -83,7 +83,7 @@ set_E0 = 0
 
 # Initial energy
 E0 = assemble( ( 0.5*(1+epsilon*eta0)*abs(grad(phi0))**2 + 0.5*eta0**2 + mu*(inner(grad(q0),grad(phi0))-0.75*q0**2) )*dx )
-E_file = open('energy.txt', 'w')
+E_file = open("energy.txt", "w")
 E = find_energy(phi0, eta0, q0, mu, epsilon, t, E0, E_file);
 
 # Exact solutions
@@ -136,7 +136,7 @@ while(t < T-dt):
 			if set_E0 == 1:
 				E0 = assemble( ( 0.5*(1+epsilon*eta0)*abs(grad(phi0))**2 + 0.5*eta0**2 + mu*(inner(grad(q0),grad(phi0))-0.75*q0**2) )*dx )
 				E_file.close()
-				E_file = open('energy.txt', 'w')
+				E_file = open("energy.txt", "w")
 
     	E = find_energy(phi0, eta0, q0, mu, epsilon, t, E0, E_file);
 
