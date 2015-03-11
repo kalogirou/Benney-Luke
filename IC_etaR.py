@@ -7,10 +7,10 @@ from firedrake import *
 # Intial conditions from exact solutions
 def exact_ICs(eta0, phi0, x, kx, ky, Lx, Ly, Ampl, mu, epsilon, speed, is_linear):
 
-	if is_linear == 'True':
+	if is_linear == 'True':		# Linear exact solution
 		eta0.interpolate(Expression("Ampl*cos(kx*pi*x[0]/Lx)*cos(ky*pi*x[1]/Ly)", kx=kx, ky=ky, Lx=Lx, Ly=Ly, Ampl=Ampl))
     
-	elif is_linear == 'False':
+	elif is_linear == 'False':	# Soliton wave solution
 		eta0.interpolate(Expression("1/3.0*c*pow(cosh(0.5*sqrt(c*epsilon/mu)*(x[1]-y0)),-2)", c=speed, mu=mu, epsilon=epsilon, y0=0.5*Ly))
 		phi0.interpolate(Expression("2/3.0*sqrt(c*mu/epsilon)*(tanh(0.5*sqrt(c*epsilon/mu)*(x[1]-y0))+1)", c=speed, mu=mu, epsilon=epsilon, y0=0.5*Ly))
 
