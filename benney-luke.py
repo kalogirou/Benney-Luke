@@ -10,7 +10,7 @@ from solvers import *
 from energy import *
 from exact import *
 
-# A bug in Firedrake’s kernel optimiser currently means that this code fails with optimisations enabled, so we turn it off
+# A bug in Firedrake kernel optimiser currently means that this code fails with optimisations enabled, so we turn it off
 op2.init()
 parameters["coffee"]["O2"] = False
 
@@ -71,11 +71,11 @@ elif order_time == 2:
 # Write data to files
 phi_file = File("phi.pvd")
 eta_file = File("eta.pvd")
-etaR_file = File("etaR.pvd")
+if is_exact == 'False': etaR_file = File("etaR.pvd")
 
 phi_file << phi0
 eta_file << eta0
-etaR_file << etaR
+if is_exact == 'False': etaR_file << etaR
 
 # Time iteration
 t = 0
@@ -143,7 +143,6 @@ while(t < T-dt):
 	# Write data to files
     	phi_file << phi0
     	eta_file << eta0
-	etaR_file << etaR
+	if is_exact == 'False': etaR_file << etaR
 
 E_file.close()
-
