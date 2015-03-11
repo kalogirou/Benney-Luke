@@ -8,7 +8,7 @@ def get_cases():
 
 	is_exact = 'False'	# 'True': compare to exact solutions. 'False': sluice gate problem
 	is_linear = 'False'	# 'True': linear Benney-Luke. 'False': nonlinear
-	order_time = 2		# Order of the time integrator: = 1 Symplectic Euler, = 2 Stormer-Verlet
+	order_time = 2		# Order of the time integrator: 1 = Symplectic Euler, 2 = Stormer-Verlet
 	solvers_print = {} 	# OR = {'snes_monitor': True,'ksp_monitor': True,'snes_linesearch_monitor': True}
 
 	return (is_exact, is_linear, order_time, solvers_print);
@@ -70,13 +70,18 @@ def parameter_values(H0s, LLx, LLy, Lc, hh1, U, g, is_exact, is_linear):
 
 def omega_speed(Lx, Ly, mu):
 
+	# Wave amplitude
 	Ampl = 0.1
+	
+	# Wavenumbers
 	kx = 2
 	ky = 4
 	k2 = (kx*pi/Lx)**2 + (ky*pi/Ly)**2
-	omega = sqrt(k2*(1+2*mu/3.0*k2))/(1+0.5*mu*k2)	# Dispersion relation
+	
+	# Dispersion relation
+	omega = sqrt(k2*(1+2*mu/3.0*k2))/(1+0.5*mu*k2)
 
-	# Necessary only in the nonlinear soliton case
+	# Wave speed (necessary only in the nonlinear soliton case)
 	speed = 1.0
 
 	return (Ampl, kx, ky, k2, omega, speed);
