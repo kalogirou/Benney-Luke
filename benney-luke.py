@@ -98,7 +98,7 @@ if is_exact == 'True':
 while(t < T-dt):
     	t += dt
     	if is_exact == 'True':
-    		print t, assemble((phi0-ex_phi)**2*dx)
+    		print t, assemble((eta0-ex_eta)**2*dx)
 
 		# Update exact solutions in time
 		(ex_phi, ex_eta) = update_exact(ex_phi, ex_eta, expr_phi, expr_eta, t, Ly, epsilon, speed, is_linear);
@@ -116,7 +116,7 @@ while(t < T-dt):
 
     		etaR.interpolate(etaR_expr)
 
-    		# Evaluate etaR at t_{n+1/2}=t0+dt/2
+    		# Evaluate etaR at t_{n+1/2}=t_n+dt/2
     		if t<Ts:
 	    		etaR_expr.H0 = h1+(h0-h1)*(Ts-(t+0.5*dt))/Ts
 
