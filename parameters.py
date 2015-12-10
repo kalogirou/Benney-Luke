@@ -17,7 +17,7 @@ def get_cases():
 
 def experimental_values():
 
-	H0s = 0.45	# m	 # average water level at rest
+	H0s = 0.457	# m	 # average water level at rest
 	hh0 = 0.43	# m	 # lower water level at rest
 	hh1 = 0.9	# m	 # upper water lever at rest
 	LLx = 2.0	# m	 # wavetank width
@@ -35,7 +35,7 @@ def parameter_values(H0s, LLx, LLy, Lc, hh1, U, g, is_exact, is_linear):
 
 	dt = 0.0028
 	mu = 0.04
-	epsilon = 0.25
+	epsilon = 0.55
 
 	if is_exact == 'True':
 		d = 0.0
